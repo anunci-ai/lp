@@ -30,6 +30,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
   },
+  icons: {
+    icon: "/icon.png",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({
