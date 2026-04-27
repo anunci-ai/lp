@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { AnimatedBlobs } from "@/components/animated-blobs";
 import { BeforeAfter } from "@/components/before-after";
 import { Button } from "../ui/button";
-import Link from "next/link";
 
 const container = {
   hidden: {},
@@ -79,12 +78,12 @@ export function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4"
         >
           <Button size="lg" asChild>
-            <Link href="https://app.anunciaai.com/sign-in">
+            <a href="https://app.anunciaai.com/sign-in">
               Gerar meu primeiro anúncio grátis
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </Link>
+            </a>
           </Button>
           <Button size="lg" variant="ghost">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">

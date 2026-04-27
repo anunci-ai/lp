@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GradientButton } from "@/components/gradient-button";
 import { Button } from "../ui/button";
-import Link from "next/link";
 
 export function FinalCTA() {
   return (
@@ -52,12 +50,12 @@ export function FinalCTA() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" asChild>
-              <Link href="https://app.anunciaai.com/sign-in">
+              <a href="https://app.anunciaai.com/sign-in">
                 Gerar meu primeiro anúncio grátis
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </Link>
+              </a>
             </Button>
           </div>
 

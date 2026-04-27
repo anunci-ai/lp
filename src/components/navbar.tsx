@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ThemeSwitcher } from "./theme-switcher";
 import { Button } from "./ui/button";
-import Image from "next/image";
-import Link from "next/link";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -55,9 +53,9 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <ThemeSwitcher />
           <Button asChild>
-            <Link href="https://app.anunciaai.com/sign-in">
+            <a href="https://app.anunciaai.com/sign-in">
               Começar grátis
-            </Link>
+            </a>
           </Button>
         </div>
       </div>
