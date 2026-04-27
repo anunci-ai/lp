@@ -48,18 +48,18 @@ const faqs = [
 
 function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boolean; onToggle: () => void }) {
   return (
-    <div className="border-b border-white/[0.06] last:border-0">
+    <div className="border-b border-border last:border-0">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer group"
+        className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer group text-muted-foreground"
         aria-expanded={isOpen}
       >
-        <span className="text-base font-semibold text-white/80 group-hover:text-white transition-colors">
+        <span className="text-base font-semibold text-foreground/80 group-hover:text-foreground transition-colors">
           {q}
         </span>
         <div
           className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors"
-          style={{ background: isOpen ? "linear-gradient(135deg, #0f3194, #4b53f8)" : "rgba(255,255,255,0.06)" }}
+          style={{ background: isOpen ? "linear-gradient(135deg, #0f3194, #4b53f8)" : "var(--secondary)" }}
         >
           <motion.svg
             width="12"
@@ -71,7 +71,7 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
           >
             <path
               d="M2 4L6 8L10 4"
-              stroke={isOpen ? "white" : "rgba(255,255,255,0.5)"}
+              stroke={isOpen ? "white" : "currentColor"}
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -90,7 +90,7 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
             transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="overflow-hidden"
           >
-            <p className="pb-5 text-sm text-white/50 leading-relaxed">{a}</p>
+            <p className="pb-5 text-sm text-muted-foreground leading-relaxed">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -123,7 +123,7 @@ export function FAQ() {
           <p className="text-sm font-semibold uppercase tracking-widest gradient-text mb-4">
             Dúvidas
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-foreground leading-tight">
             Perguntas{" "}
             <span className="gradient-text">frequentes</span>
           </h2>
@@ -154,7 +154,7 @@ export function FAQ() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center text-sm text-white/30 mt-8"
+          className="text-center text-sm text-muted-foreground/70 mt-8"
         >
           Mais dúvidas?{" "}
           <a href="mailto:oi@anuncia.ai" className="gradient-text hover:opacity-80 transition-opacity">

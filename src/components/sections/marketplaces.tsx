@@ -2,6 +2,16 @@
 
 import { motion } from "framer-motion";
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+const MotionCard = motion.create(Card);
+
 const marketplaces = [
   {
     name: "Mercado Livre",
@@ -68,18 +78,17 @@ export function Marketplaces() {
         {/* Marketplace cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {marketplaces.map((mp, i) => (
-            <motion.div
+            <MotionCard
               key={mp.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.55, delay: i * 0.1 }}
               whileHover={{ y: -5, scale: 1.01 }}
-              className="glass-card rounded-2xl overflow-hidden"
+              className="gap-0 py-0 overflow-hidden"
             >
-              {/* Logo area */}
-              <div
-                className="flex items-center gap-3 px-6 py-5"
+              <CardHeader
+                className="flex flex-row items-center gap-3 px-6 py-5 rounded-t-2xl"
                 style={{ background: mp.bgColor }}
               >
                 <div
@@ -89,37 +98,51 @@ export function Marketplaces() {
                   {mp.symbol}
                 </div>
                 <div>
-                  <div className="font-bold text-base" style={{ color: mp.textColor }}>
+                  <CardTitle
+                    className="font-bold text-base"
+                    style={{ color: mp.textColor }}
+                  >
                     {mp.name}
-                  </div>
-                  <div className="text-xs opacity-70" style={{ color: mp.textColor }}>
+                  </CardTitle>
+                  <CardDescription
+                    className="text-xs opacity-70"
+                    style={{ color: mp.textColor }}
+                  >
                     {mp.tagline}
-                  </div>
+                  </CardDescription>
                 </div>
-              </div>
+              </CardHeader>
 
-              {/* Specs */}
-              <div className="px-6 py-5">
+              <CardContent className="px-6 py-5">
                 <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground/60 mb-3">
                   Especificações otimizadas
                 </p>
                 <ul className="space-y-2.5">
                   {mp.specs.map((spec) => (
-                    <li key={spec} className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                    <li
+                      key={spec}
+                      className="flex items-center gap-2.5 text-sm text-muted-foreground"
+                    >
                       <div
                         className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
                         style={{ background: "rgba(163,230,53,0.15)" }}
                       >
                         <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                          <path d="M1.5 4L3 5.5L6.5 2" stroke="#A3E635" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          <path
+                            d="M1.5 4L3 5.5L6.5 2"
+                            stroke="#A3E635"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                       </div>
                       {spec}
                     </li>
                   ))}
                 </ul>
-              </div>
-            </motion.div>
+              </CardContent>
+            </MotionCard>
           ))}
         </div>
 

@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { GradientButton } from "./gradient-button";
 import { ThemeSwitcher } from "./theme-switcher";
+import { Button } from "./ui/button";
+import Image from "next/image";
+import Link from "next/link";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -16,21 +18,19 @@ export function Navbar() {
 
   return (
     <motion.header
+      id="inicio"
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] as [number, number, number, number] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-border bg-background/80 backdrop-blur-xl"
-          : "bg-transparent"
-      }`}
+      className={`transition-all duration-300`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-1.5 font-bold text-xl tracking-tight">
-          <span className="text-foreground">anuncia</span>
-          <span className="gradient-text">.ai</span>
-        </a>
+        <div className="flex flex-row items-center gap-12">
+          <a href="#" className="flex items-center gap-1.5 font-bold text-xl tracking-tight">
+            <span className="text-foreground">anuncia</span>
+            <span className="gradient-text">.ai</span>
+          </a>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
@@ -42,19 +42,23 @@ export function Navbar() {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-semibold"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
+        </div>
+
         {/* Right side */}
         <div className="flex items-center gap-3">
           <ThemeSwitcher />
-          <GradientButton size="sm">
-            Começar grátis
-          </GradientButton>
+          <Button asChild>
+            <Link href="https://app.anunciaai.com/sign-in">
+              Começar grátis
+            </Link>
+          </Button>
         </div>
       </div>
     </motion.header>

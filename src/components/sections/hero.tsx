@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GradientButton } from "@/components/gradient-button";
 import { AnimatedBlobs } from "@/components/animated-blobs";
 import { BeforeAfter } from "@/components/before-after";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 const container = {
   hidden: {},
@@ -38,10 +39,10 @@ export function Hero() {
         initial={{ opacity: 0, scale: 0.9, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="mb-8 flex items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-2 backdrop-blur-sm"
+        className="mb-8 flex items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-1 backdrop-blur-sm"
       >
         <span className="text-base">✨</span>
-        <span className="text-sm font-medium text-muted-foreground">
+        <span className="text-xs font-medium text-muted-foreground">
           De foto a anúncio profissional em{" "}
           <span className="gradient-text font-semibold">30 segundos</span>
         </span>
@@ -77,19 +78,21 @@ export function Hero() {
           variants={item}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4"
         >
-          <GradientButton size="lg">
-            Gerar meu primeiro anúncio grátis
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </GradientButton>
-          <GradientButton size="lg" variant="ghost">
+          <Button size="lg" asChild>
+            <Link href="https://app.anunciaai.com/sign-in">
+              Gerar meu primeiro anúncio grátis
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          </Button>
+          <Button size="lg" variant="ghost">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
               <circle cx="9" cy="9" r="7.5" stroke="currentColor" strokeWidth="1.5" />
               <path d="M7 6.5L12 9L7 11.5V6.5Z" fill="currentColor" />
             </svg>
             Ver demonstração
-          </GradientButton>
+          </Button>
         </motion.div>
 
         <motion.p variants={item} className="text-sm text-muted-foreground/60">

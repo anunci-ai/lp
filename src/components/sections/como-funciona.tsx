@@ -2,6 +2,15 @@
 
 import { motion } from "framer-motion";
 
+import {
+  Card,
+  CardContent,
+  CardHeader,
+} from "@/components/ui/card";
+import { SparkleIcon } from "lucide-react";
+
+const MotionCard = motion.create(Card);
+
 const steps = [
   {
     number: "01",
@@ -63,7 +72,7 @@ function ProcessingMockup() {
           }}
         >
           <div className="w-full h-full rounded-full flex items-center justify-center" style={{ background: "var(--card)" }}>
-            <span className="text-xl">🤖</span>
+            <span className="text-xl"><SparkleIcon size={20} className="text-muted-foreground" /></span>
           </div>
         </div>
       </div>
@@ -149,23 +158,17 @@ export function ComoFunciona() {
 
         {/* Steps grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-          {/* Connector line (desktop only) */}
-          <div className="hidden md:block absolute top-20 left-1/3 right-1/3 h-px"
-            style={{ background: "linear-gradient(to right, #0f3194, #2d3ef6, #4b53f8)" }}
-          />
-
           {steps.map((step, i) => (
-            <motion.div
+            <MotionCard
               key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.6, delay: i * 0.12 }}
               whileHover={{ y: -6 }}
-              className="glass-card rounded-2xl p-6 flex flex-col gap-5"
+              className="glass-card rounded-2xl flex flex-col gap-5"
             >
-              {/* Number */}
-              <div className="flex items-center justify-between">
+              <CardHeader>
                 <span
                   className="text-5xl font-black leading-none"
                   style={{
@@ -178,24 +181,22 @@ export function ComoFunciona() {
                 >
                   {step.number}
                 </span>
-                {/* Step indicator dot */}
-                <div
-                  className="w-8 h-8 rounded-full flex items-center justify-center"
-                  style={{ background: `${step.accent}22`, border: `1px solid ${step.accent}44` }}
-                >
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: step.accent }} />
-                </div>
-              </div>
+
+              </CardHeader>
+  
 
               {/* Visual mockup */}
-              {step.visual}
 
               {/* Text */}
-              <div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-              </div>
-            </motion.div>
+              <CardContent>
+                {step.visual}
+                <div className="mt-5">
+                  <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                </div>
+              </CardContent>
+      
+            </MotionCard>
           ))}
         </div>
       </div>

@@ -7,6 +7,7 @@ import { Pricing } from "@/components/sections/pricing";
 import { FAQ } from "@/components/sections/faq";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { Footer } from "@/components/sections/footer";
+import { ScrollToTopButton } from "@/components/scroll-to-top";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <FAQ />
       <FinalCTA />
       <Footer />
+      <ScrollToTopButton />
     </main>
   );
 }
