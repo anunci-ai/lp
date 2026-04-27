@@ -120,7 +120,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 40, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className="w-full max-w-3xl mx-auto"
+        className="md:w-110 mx-auto"
       >
         <BeforeAfter />
         <p className="text-center text-xs text-muted-foreground/50 mt-3">
