@@ -53,7 +53,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <ThemeSwitcher />
           <Button asChild>
-            <a href="https://app.anunciaai.com/sign-in">
+            <a href="https://app.anunciaai.com/" target="_blank" rel="noopener noreferrer">
               Começar grátis
             </a>
           </Button>
