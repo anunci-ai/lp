@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { AnimatedBlobs } from "@/components/animated-blobs";
 import { BeforeAfter } from "@/components/before-after";
+import { FloatingShapes } from "@/components/floating-shapes";
 import { Button } from "../ui/button";
 
 const container = {
@@ -32,6 +33,7 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-16 px-5 overflow-hidden dot-grid">
       <AnimatedBlobs />
+      <FloatingShapes />
 
       {/* Top badge */}
       <motion.div
